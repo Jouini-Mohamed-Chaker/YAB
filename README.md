@@ -9,53 +9,27 @@ The backend exposes a set of RESTful APIs for managing library data, while the f
 
 ## Requirements
 
-- **Backend**: Java 17 or later, Maven
-- **Frontend**: Node.js (v16 or later), npm
+- **Backend**: Java 21 or later, Maven
+- **Frontend**: Node.js (v22 or later), npm
 
-## How to Use the `launch.sh` Script
+## How to Run the Project
 
-The `launch.sh` script is used to automatically start both the **backend** and **frontend** of the project in one command. The backend will run silently, and only the frontend output will be shown in the terminal.
-
-### Steps to Use the Script
-
-1. **Clone the repository**:
-   If you haven’t cloned the repository yet, run:
+1. **Backend**:  
+   Navigate to the `springboot-backend` directory and run:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   ./mvnw spring-boot:run
    ```
 
-2. **Ensure required dependencies are installed**:
+   Wait for the server to start properly.
 
-   - **Backend**: Make sure you have Java 17 or later installed.
-   - **Frontend**: Ensure Node.js and npm are installed. You can check by running:
-     ```bash
-     node -v
-     npm -v
-     ```
-
-3. **Make the script executable**:
-   If it isn’t executable already, run:
-
+2. **Frontend**:  
+   In another terminal, navigate to the `react-frontend` directory and run:
    ```bash
-   chmod +x launch.sh
+   npm install
+   npm run dev
    ```
-
-4. **Run the script**:
-   To start both the backend and frontend, execute the script:
-   ```bash
-   ./launch.sh
-   ```
-
-### What Happens When You Run the Script:
-
-- The **Spring Boot backend** will start in the background. All of its output will be suppressed, and only errors will be shown if something goes wrong.
-- The **React frontend** will start and you will see the Vite development server’s output, including any compilation errors or logs from React.
-
-### Stopping the Processes
-
-To stop both the backend and frontend, press `Ctrl+C`. The script is designed to gracefully handle cleanup and send `Ctrl+C` to both processes.
+   Open your browser and navigate to the outputted link (usually `http://localhost:5173`).
 
 ## Accessing the Application
 
@@ -69,6 +43,6 @@ To stop both the backend and frontend, press `Ctrl+C`. The script is designed to
 
 ## Troubleshooting
 
-- **Frontend does not start**: Make sure that the required dependencies are installed by running `npm install` inside the `frontend` directory before running the script.
+- **Frontend does not start**: Make sure that the required dependencies are installed by running `npm install` inside the `react-frontend` directory.
 - **Backend does not start**: Check if you have the correct Java version installed, and ensure your database is properly configured.
 - **No output from the backend**: The Spring Boot output is suppressed by design. Check the backend logs or open the backend's log file if needed.
